@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#7ccf92" />
+  <meta name="description" content="Nodir Pare — a cozy anime village life game set in rural Bangladesh." />
+  <title>Nodir Pare — নদীর পাড়ে</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game" aria-label="Nodir Pare game">
+    <div class="topbar">
+      <div class="profile glass">
+        <div class="avatar">👦🏻</div>
+        <div>
+          <div class="name">Rafi</div>
+          <div class="level">Lv. <span id="level">1</span></div>
+          <div class="xp"><i id="xpFill"></i></div>
+        </div>
+        <div class="coins">🪙 <span id="coins">250</span></div>
+      </div>
+      <div class="clock glass">
+        <div class="sun">☀️</div>
+        <div><b id="time">08:00 AM</b><small id="season">Boishakh • Spring</small></div>
+      </div>
+      <button class="icon-btn glass" id="saveBtn" title="Save game">💾</button>
+      <button class="icon-btn glass" id="buildBtn" title="Build village">🛠️</button>
+      <button class="icon-btn glass" id="resetBtn" title="Reset game">↻</button>
+    </div>
+
+    <main class="world-wrap">
+      <div id="world" class="world">
+        <img src="assets/village-map.png" alt="Anime-style rural Bangladesh village map" class="map" draggable="false" />
+        <div class="vignette"></div>
+        <div id="player" class="player" aria-label="Rafi"><span>🧑🏻</span><em></em></div>
+        <div id="interactHint" class="interact-hint">Walk around and explore</div>
+        <div class="build-yard-label">🛠️ Build Yard</div>
+        <div class="location-dot home" data-name="Home" style="left:24%;top:40%"></div>
+        <div class="location-dot market" data-name="Market" style="left:45%;top:39%"></div>
+        <div class="location-dot tea" data-name="Tea Stall" style="left:58%;top:42%"></div>
+        <div class="location-dot fish" data-name="Fishing Spot" style="left:58%;top:18%"></div>
+        <div class="location-dot garden" data-name="Vegetable Garden" style="left:77%;top:72%"></div>
+        <div class="location-dot pond" data-name="Pond" style="left:19%;top:64%"></div>
+      </div>
+    </main>
+
+    <aside class="quest glass">
+      <h3>📜 Main Quest</h3>
+      <p id="mainQuest">Help Grandma water the garden <span>(0/1)</span></p>
+      <div class="divider"></div>
+      <h3>✓ Daily Tasks</h3>
+      <ul>
+        <li id="taskWater">Water the crops <b>0/1</b></li>
+        <li id="taskFish">Catch a fish <b>0/1</b></li>
+        <li id="taskTalk">Talk to Mitu <b>0/1</b></li>
+      </ul>
+    </aside>
+
+    <div class="controls">
+      <div class="dpad glass" aria-label="movement controls">
+        <button data-key="ArrowUp">▲</button>
+        <button data-key="ArrowLeft">◀</button>
+        <button data-key="ArrowDown">▼</button>
+        <button data-key="ArrowRight">▶</button>
+      </div>
+      <div class="actions">
+        <button class="action glass" id="talkBtn">💬<span>Talk</span></button>
+        <button class="action glass" id="actionBtn">✨<span>Interact</span></button>
+        <button class="action glass" id="mapBtn">🗺️<span>Map</span></button>
+        <button class="action glass" id="bagBtn">🎒<span>Bag</span></button>
+      </div>
+    </div>
+
+    <div id="toast" class="toast" role="status"></div>
+
+    <div id="dialogue" class="modal hidden">
+      <div class="dialogue-card">
+        <div class="dialogue-avatar" id="dialogueAvatar">👵🏻</div>
+        <div class="dialogue-body">
+          <div class="dialogue-name" id="dialogueName">Grandma Ayesha</div>
+          <p id="dialogueText">Welcome home, Rafi.</p>
+          <button id="dialogueNext">Continue</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="panel" class="modal hidden">
+      <div class="panel-card">
+        <button class="close" id="closePanel">×</button>
+        <h2 id="panelTitle">Inventory</h2>
+        <div id="panelContent"></div>
+      </div>
+    </div>
+
+    <div id="startScreen" class="start-screen">
+      <div class="start-card">
+        <div class="title-bengali">নদীর পাড়ে</div>
+        <h1>NODIR PARE</h1>
+        <p>A Cozy Anime Life in Rural Bangladesh</p>
+        <div class="start-scene">🌴 🌾 🏡 💧 🛶 🌸</div>
+        <button id="startBtn">Start Village Life</button>
+        <small>Move with WASD / Arrow Keys • Click a location to explore</small>
+      </div>
+    </div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
